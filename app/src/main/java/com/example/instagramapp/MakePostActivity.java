@@ -37,6 +37,7 @@ public class MakePostActivity extends AppCompatActivity {
     private Button btnSubmit;
     private File photoFile;
     private String photoFileName = "photo.jpg";
+    private Button btnLogout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,8 +47,18 @@ public class MakePostActivity extends AppCompatActivity {
         btnCaptureImage = findViewById(R.id.btnTakePicture);
         ivPostImage = findViewById(R.id.ivPostImage);
         btnSubmit = findViewById(R.id.btnSubmit);
-//        queryPosts();
+        btnLogout = findViewById(R.id.logoutBtn);
 
+//        queryPosts();
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ParseUser.logOut();
+                ParseUser currentUser = ParseUser.getCurrentUser(); // this will now be null
+                goMainActivity();
+                Toast.makeText(MakePostActivity.this,"Successfully logged out", Toast.LENGTH_SHORT).show();
+            }
+        });
         btnCaptureImage.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -168,5 +179,11 @@ public class MakePostActivity extends AppCompatActivity {
 
 
         });
+    }
+    private void goMainActivity()
+    {
+        Intent i = new Intent(this,MainActivity.class);
+        startActivity(i);
+        finish();
     }
 }

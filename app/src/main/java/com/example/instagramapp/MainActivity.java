@@ -28,11 +28,11 @@ public class MainActivity extends AppCompatActivity {
                 Intent i = new Intent(this,MakePostActivity.class);
                 startActivity(i);
         }
-        else
-        {
-            Intent i = new Intent(this,MainActivity.class);
-            startActivity(i);
-        }
+//        else
+//        {
+//            Intent i = new Intent(this,MainActivity.class);
+//            startActivity(i);
+//        }
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
