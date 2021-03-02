@@ -17,8 +17,8 @@ public class ParseApplication extends Application {
         );
 
         //New test creation of object below
-        ParseObject testObject = new ParseObject("Test Object");
-        testObject.put("foo","bar");
-        testObject.saveInBackground();
+//        ParseObject testObject = new ParseObject("Test Object");
+//        testObject.put("foo","bar");
+//        testObject.saveInBackground();
     }
 }
