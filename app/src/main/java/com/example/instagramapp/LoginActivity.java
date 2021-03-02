@@ -27,6 +27,10 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+//        if(ParseUser.getCurrentUser() != null)
+//        {
+//           Toast.makeText(LoginActivity.this,"Invalid Username!",Toast.LENGTH_SHORT).show();
+//        }
         etUsername = findViewById(R.id.etUsername);
         etPassword = findViewById(R.id.etPassword);
         btnLogin = findViewById(R.id.btnLogin);
@@ -57,14 +61,14 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
                 //TODO: navigate to the main activity if the user has signed in properly
-                   goMainActivity();
+                   goMakePostActivity();
                     Toast.makeText(LoginActivity.this,"Success!", Toast.LENGTH_SHORT).show();
             }
         });
     }
-    private void goMainActivity()
+    private void goMakePostActivity()
     {
-            Intent i = new Intent(this,MainActivity.class);
+            Intent i = new Intent(this,MakePostActivity.class);
             startActivity(i);
             finish();
     }
