@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.parse.ParseUser;
+
 public class MainActivity extends AppCompatActivity {
     public static final String TAG = "MainActivity";
     private Button loginBtn;
@@ -20,6 +22,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         loginBtn = findViewById(R.id.loginBtn);
         signupBtn = findViewById(R.id.signUpBtn);
+
+        ParseUser currentUser = ParseUser.getCurrentUser();
+        if(currentUser != null) {
+                Intent i = new Intent(this,MakePostActivity.class);
+                startActivity(i);
+        }
+        else
+        {
+            Intent i = new Intent(this,MainActivity.class);
+            startActivity(i);
+        }
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
